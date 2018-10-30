@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @Description: redis操作数据集
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-14 15:33
  */
 public class RedisObject {

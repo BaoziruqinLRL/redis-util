@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @Description: redis结果集
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-12 18:08
  */
 public class RedisOpResult {

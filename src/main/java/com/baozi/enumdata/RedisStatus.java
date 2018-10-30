@@ -2,7 +2,7 @@ package com.baozi.enumdata;
 
 /**
  * @Description: redis operation result type
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-14 13:55
  */
 public enum RedisStatus {

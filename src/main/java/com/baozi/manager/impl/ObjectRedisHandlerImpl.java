@@ -15,7 +15,7 @@ import static com.baozi.util.RedisUtil.buildErrorResult;
 
 /**
  * @Description: redis的opsForValue操作，在缓存中操作字符串类型的数据
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-12 18:03
  */
 @Component

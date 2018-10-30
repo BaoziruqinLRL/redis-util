@@ -5,7 +5,7 @@ import com.baozi.result.RedisOpResult;
 
 /**
  * @Description: 工具包内部的通用实现
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-27 14:13
  */
 public class RedisUtil {

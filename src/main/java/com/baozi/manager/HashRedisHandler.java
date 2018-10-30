@@ -4,7 +4,7 @@ import com.baozi.result.RedisOpResult;
 
 /**
  * @Description:
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-12 19:33
  */
 public interface HashRedisHandler<K, V> {

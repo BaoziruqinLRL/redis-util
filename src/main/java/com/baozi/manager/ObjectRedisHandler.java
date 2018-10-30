@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Description:
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-12 18:02
  */
 public interface ObjectRedisHandler<T> {

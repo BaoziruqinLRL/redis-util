@@ -12,7 +12,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * @Description: bean配置
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-12 16:46
  */
 @Configuration

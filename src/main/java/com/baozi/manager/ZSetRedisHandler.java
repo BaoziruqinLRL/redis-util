@@ -4,7 +4,7 @@ import com.baozi.result.RedisOpResult;
 
 /**
  * @Description: redis的ZSet操作类
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-13 18:34
  */
 public interface ZSetRedisHandler<T> {

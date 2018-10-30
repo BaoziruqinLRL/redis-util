@@ -15,7 +15,7 @@ import static com.baozi.util.RedisUtil.checkParamNotNull;
 
 /**
  * @Description:
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-12 19:30
  */
 @Component

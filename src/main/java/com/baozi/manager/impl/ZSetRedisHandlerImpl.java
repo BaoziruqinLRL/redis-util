@@ -20,7 +20,7 @@ import static com.baozi.util.RedisUtil.checkParamNotNull;
 
 /**
  * @Description: redis的ZSet操作实现
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-13 18:35
  */
 @Component

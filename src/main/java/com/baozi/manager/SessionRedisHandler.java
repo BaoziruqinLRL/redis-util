@@ -4,7 +4,7 @@ import com.baozi.result.RedisOpResult;
 
 /**
  * @Description: redisSession操作
- * @Author: lirl
+ * @Author: baozi
  * @Create: 2018-09-27 14:07
  */
 public interface SessionRedisHandler {
