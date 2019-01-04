@@ -1,6 +1,7 @@
 package com.baozi.result;
 
 import com.baozi.enumdata.RedisStatus;
+import lombok.Data;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Author: baozi
  * @Create: 2018-09-12 18:08
  */
+@Data
 public class RedisOpResult {
 
     /**
@@ -36,33 +38,10 @@ public class RedisOpResult {
      */
     private long opCount;
 
-    public long getOpCount() {
-        return opCount;
-    }
-
-    public void setOpCount(long opCount) {
-        this.opCount = opCount;
-    }
-
-    public void setCode(RedisStatus code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Exception getException() {
-        return exception;
-    }
-
-    public void setException(Exception exception) {
-        this.exception = exception;
-    }
+    /**
+     * 数据长度
+     */
+    private Long size;
 
     public RedisObject getValue(){
         if (values == null || values.size() == 0){
