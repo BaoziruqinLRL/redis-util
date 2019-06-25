@@ -15,7 +15,7 @@ import static com.baozi.util.RedisUtil.buildErrorResult;
 
 /**
  * @Description: redis的opsForValue操作，在缓存中操作字符串类型的数据
- * @Author: baozi
+ * @Author: lirl
  * @Create: 2018-09-12 18:03
  */
 @Component
@@ -107,8 +107,12 @@ public class ObjectRedisHandlerImpl<T> implements ObjectRedisHandler<T> {
         RedisOpResult buildSuccessResult = new RedisOpResult();
         buildSuccessResult.setCode(RedisStatus.SUCCESS);
         buildSuccessResult.setMessage(RedisStatus.SUCCESS.getMsg());
-        buildSuccessResult.setValues(Collections.singletonList(new RedisObject(value,DEFAULT_SCORE,DEFAULT_RANK)));
-        buildSuccessResult.setOpCount(1);
+        if (value == null){
+            buildSuccessResult.setOpCount(0L);
+        }else {
+            buildSuccessResult.setOpCount(1L);
+            buildSuccessResult.setValues(Collections.singletonList(new RedisObject(value,DEFAULT_SCORE,DEFAULT_RANK)));
+        }
         return buildSuccessResult;
     }
 }

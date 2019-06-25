@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @Description: redis结果集
- * @Author: baozi
+ * @Author: lirl
  * @Create: 2018-09-12 18:08
  */
 @Data
@@ -36,7 +36,7 @@ public class RedisOpResult {
     /**
      * 操作影响数据数量
      */
-    private long opCount;
+    private Long opCount;
 
     /**
      * 数据长度
@@ -56,13 +56,5 @@ public class RedisOpResult {
         }else{
             return false;
         }
-    }
-
-    public List<RedisObject> getValues() {
-        return values;
-    }
-
-    public void setValues(List<RedisObject> values) {
-        this.values = values;
     }
 }

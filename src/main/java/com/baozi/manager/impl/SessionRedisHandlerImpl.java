@@ -13,7 +13,7 @@ import static com.baozi.util.RedisUtil.checkParamNotNull;
 
 /**
  * @Description:
- * @Author: baozi
+ * @Author: lirl
  * @Create: 2018-09-27 14:09
  */
 @Component
@@ -22,7 +22,7 @@ public class SessionRedisHandlerImpl<V> implements SessionRedisHandler {
     @Resource
     private HashRedisHandler<String,V> hashRedisHandler;
 
-    private static final String SESSION_TAG = "laidantech_session:sessions:";
+    private static final String SESSION_TAG = "baozi_redis_session:";
     private static final String SESSION_HASH_TAG = "sessionAttr:";
 
     @Override

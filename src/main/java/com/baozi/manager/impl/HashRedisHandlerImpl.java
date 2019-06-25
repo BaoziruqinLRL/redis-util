@@ -15,7 +15,7 @@ import static com.baozi.util.RedisUtil.checkParamNotNull;
 
 /**
  * @Description:
- * @Author: baozi
+ * @Author: lirl
  * @Create: 2018-09-12 19:30
  */
 @Component
@@ -24,7 +24,7 @@ public class HashRedisHandlerImpl<K, V> implements HashRedisHandler<K, V> {
     @Resource
     private RedisTemplate<String,V> redisTemplate;
 
-    private static final int DEFAULT_INFLU_NUM = 1;
+    private static final long DEFAULT_INFLU_NUM = 1;
 
     @Override
     public RedisOpResult store(String key, K hKey, V hValue) {
@@ -80,7 +80,7 @@ public class HashRedisHandlerImpl<K, V> implements HashRedisHandler<K, V> {
         RedisOpResult result;
         try{
             List value = redisTemplate.opsForHash().multiGet(key, Arrays.asList(hkeys));
-            result = buildSuccessResult(null,value.size(),null,value);
+            result = buildSuccessResult(null,(long) value.size(),null,value);
         }catch (Exception ex){
             result = buildErrorResult(ex.getMessage(),ex,RedisStatus.EXCEPTION);
         }
@@ -95,7 +95,7 @@ public class HashRedisHandlerImpl<K, V> implements HashRedisHandler<K, V> {
         RedisOpResult result;
         try{
             Set value = redisTemplate.opsForHash().keys(key);
-            result = buildSuccessResult(null,value.size(),null,new ArrayList(value));
+            result = buildSuccessResult(null,(long) value.size(),null,new ArrayList(value));
         }catch (Exception ex){
             result = buildErrorResult(ex.getMessage(),ex,RedisStatus.EXCEPTION);
         }
@@ -110,7 +110,7 @@ public class HashRedisHandlerImpl<K, V> implements HashRedisHandler<K, V> {
         RedisOpResult result;
         try{
             List value = redisTemplate.opsForHash().values(key);
-            result = buildSuccessResult(null,value.size(),null,value);
+            result = buildSuccessResult(null,(long) value.size(),null,value);
         }catch (Exception ex){
             result = buildErrorResult(ex.getMessage(),ex,RedisStatus.EXCEPTION);
         }
@@ -125,7 +125,7 @@ public class HashRedisHandlerImpl<K, V> implements HashRedisHandler<K, V> {
         RedisOpResult result;
         try{
             Long value = redisTemplate.opsForHash().delete(key,hkeys);
-            result = buildSuccessResult(null,value.intValue(),null,null);
+            result = buildSuccessResult(null,(long) value.intValue(),null,null);
         }catch (Exception ex){
             result = buildErrorResult(ex.getMessage(),ex,RedisStatus.EXCEPTION);
         }
@@ -152,12 +152,19 @@ public class HashRedisHandlerImpl<K, V> implements HashRedisHandler<K, V> {
         return result;
     }
 
-    private RedisOpResult buildSuccessResult(V value, Integer influNum, Map entry, List list){
+    private RedisOpResult buildSuccessResult(V value, Long influNum, Map entry, List list){
         RedisOpResult buildSuccessResult = new RedisOpResult();
         buildSuccessResult.setCode(RedisStatus.SUCCESS);
         buildSuccessResult.setMessage(RedisStatus.SUCCESS.getMsg());
-        buildSuccessResult.setOpCount(influNum);
-        buildSuccessResult.setValues(Collections.singletonList(new RedisObject(value,entry,list)));
+        if (value != null){
+            buildSuccessResult.setValues(Collections.singletonList(new RedisObject(value,entry,null)));
+            buildSuccessResult.setOpCount(influNum);
+        }else if (list != null && list.size() > 0){
+            buildSuccessResult.setValues(Collections.singletonList(new RedisObject(null,entry,list)));
+            buildSuccessResult.setOpCount(influNum);
+        }else{
+            buildSuccessResult.setOpCount(0L);
+        }
 
         return buildSuccessResult;
     }
