@@ -26,7 +26,7 @@
         <spring.boot.version>2.0.4.RELEASE</spring.boot.version>
         <spring.boot.redis.version>2.0.4.RELEASE</spring.boot.redis.version>
         <lombok.version>1.18.2</lombok.version>
-        <commons.lang3.version>3.8.1</commons.lang3.version>
+        <commons.lang3.version>3.18.0</commons.lang3.version>
         <jedis.version>2.9.0</jedis.version>
     </properties>
 
